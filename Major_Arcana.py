@@ -1,4 +1,8 @@
 import random
+from Reversed import *
+from Advice import *
+from Love import *
+from Career import *
 
 tarot_deck = [ 
     {'name ' : 'The Fool', 'meaning': 'The Fool is a card of fresh starts and limitless potential. If you\'re looking for simple Yes or No guidance and receive The Fool, the answer is YES. Move forward with absolute trust.'},
@@ -25,7 +29,6 @@ tarot_deck = [
     {'name' : 'The World', 'meaning' : 'The World is a card of unity and wholeness. If you\'re looking for simple Yes or No guidance and receive The World, the answer is YES. View your present experience as a full circle moment, a fitting conclusion to a certain chapter.'}
     ]
 
-print('Welcome! Please ask your question for a \'Yes\' or \'No\' answer.')
 
 random.shuffle(tarot_deck)
 
@@ -33,12 +36,17 @@ random.shuffle(tarot_deck)
 def card_draw(deck, num_cards):
     return [deck.pop() for _ in range(num_cards)]
 
-question = input('Please ask your question: ')
+question = input('Welcome! Please ask your question for a \'Yes\' or \'No\' answer:')
 
 if question.endswith('?'):
     drawn_cards = card_draw(tarot_deck, 1)
-    print(f'\nThe Tarot answer to your \'{question}\' question: ')
+    print(f'\nThe Tarot answer to your \'{question} \' question: ')
     for card in drawn_cards:
         print(f"{card['name']} : {card['meaning']}")
+        break
 else:
     print("Please enter a valid question ending with a '?'.")
+    
+
+print(f'If you would like to get the reading for any of the following for {card['name']} Reversed, Advice, Love or Career reading:')
+print('Please select 1 for Reversed reading, 2 for Advice reading, 3 for Love reading and 4 for Career reading.')
